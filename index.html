@@ -1,128 +1,351 @@
 <!doctype html>
 <html lang="th">
+
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>เรซูเม่ - ปรัชญา สอนทา</title>
-  <!-- ฟอนต์ Sarabun จาก Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <!-- Google Font: IBM Plex Sans Thai -->
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+
   <style>
-    body { 
-      font-family: 'Sarabun', 'Segoe UI', Tahoma, sans-serif; 
-      line-height: 1.8; 
-      margin: 40px; 
-      color: #222; 
+    :root {
+      --text: #1f2937;
+      --muted: #6b7280;
+      --line: #e5e7eb;
+      --accent: #374151;
+      --bg: #ffffff;
+    }
+
+    html,
+    body {
+      background: #f9fafb;
+      color: var(--text);
+      font-family: 'IBM Plex Sans Thai', 'Segoe UI', Tahoma, sans-serif;
+      line-height: 1.8;
       font-size: 16px;
     }
-    h1 { 
-      margin-bottom: 0; 
-      font-size: 28px; 
-      font-weight: 600; 
-      color: #111;
+
+    .page {
+      max-width: 980px;
+      margin: 40px auto;
+      padding: 0 20px;
     }
-    .contact { 
-      margin: 5px 0 20px 0; 
-      font-size: 15px; 
-      color: #444; 
+
+    .card {
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      box-shadow: 0 6px 16px rgba(17, 24, 39, 0.06);
+      overflow: hidden;
     }
-    h2 { 
-      margin-top: 30px; 
-      border-bottom: 2px solid #444; 
-      padding-bottom: 5px; 
-      font-size: 20px; 
+
+    header {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 24px;
+      padding: 28px 28px 10px 28px;
+      align-items: end;
+      border-bottom: 1px solid var(--line);
+    }
+
+    @media (max-width: 820px) {
+      header {
+        grid-template-columns: 1fr;
+        gap: 8px;
+        align-items: start;
+      }
+    }
+
+    .name {
+      font-size: 30px;
+      font-weight: 700;
+      margin: 0 0 6px 0;
+      color: #111827;
+    }
+
+    .title {
+      margin: 0;
+      color: var(--accent);
       font-weight: 600;
-      color: #222;
     }
-    ul { 
-      margin-top: 10px; 
-      margin-bottom: 20px; 
+
+    .contact {
+      justify-self: end;
+      text-align: right;
+      font-size: 15px;
+      color: var(--muted);
     }
-    li { margin-bottom: 6px; }
-    .tech { 
-      margin: 5px 0 15px 20px; 
-      font-style: italic; 
-      color: #555; 
+
+    .contact a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .contact a:hover {
+      text-decoration: underline;
+    }
+
+    .contact .row {
+      margin: 2px 0;
+    }
+
+    main {
+      padding: 18px 28px 28px 28px;
+    }
+
+    .section {
+      margin-top: 22px;
+    }
+
+    .section+.section {
+      margin-top: 28px;
+    }
+
+    .section h2 {
+      margin: 0 0 12px 0;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .rule {
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), transparent 60%);
+      opacity: .15;
+    }
+
+    .exp {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 18px 28px;
+      align-items: start;
+    }
+
+    @media (max-width: 820px) {
+      .exp {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .role {
+      font-weight: 700;
+    }
+
+    .org {
+      color: var(--accent);
+    }
+
+    .period {
+      color: var(--muted);
       font-size: 14px;
+      margin-top: -4px;
+    }
+
+    .bullets {
+      margin: 2px 0 12px 0;
+      padding-left: 18px;
+    }
+
+    .bullets li {
+      margin: 4px 0;
+    }
+
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px 24px;
+    }
+
+    @media (max-width: 720px) {
+      .skills {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .skill h3 {
+      margin: 0 0 6px 0;
+      font-size: 16px;
+      font-weight: 700;
+      color: #111827;
+    }
+
+    .skill ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .edu ul {
+      margin: 8px 0 0 0;
+    }
+
+    @media print {
+
+      html,
+      body {
+        background: #fff;
+      }
+
+      .page {
+        margin: 0;
+        padding: 0;
+      }
+
+      .card {
+        box-shadow: none;
+        border: none;
+      }
+
+      header {
+        padding: 16px 20px 8px 20px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      main {
+        padding: 14px 20px 20px 20px;
+      }
+
+      .section {
+        break-inside: avoid;
+      }
     }
   </style>
 </head>
+
 <body>
+  <div class="page">
+    <div class="card">
+      <header>
+        <div>
+          <h1 class="name">ปรัชญา สอนทา</h1>
+          <p class="title">Full‑stack (ประสบการณ์ ~6 ปี)</p>
+        </div>
+        <div class="contact">
+          <div class="row">อีเมล: <a href="mailto:patchaya.sonta01@gmail.com">patchaya.sonta01@gmail.com</a></div>
+          <div class="row">โทร: <a href="tel:66835624751">083‑562‑4751</a></div>
+        </div>
+      </header>
 
-  <h1>ปรัชญา สอนทา</h1>
-  <p>นักพัฒนาเว็บไซต์ (Full-stack) ประสบการณ์ประมาณ 6 ปี ทั้งงาน Front-end และ Back-end</p>
-  <p class="contact">Email : patchaya.sonta01@gmail.com | Tel : 083-562-4751</p>
+      <main>
+        <section class="section">
+          <h2>ประสบการณ์ทำงาน</h2>
+          <div class="rule"></div>
 
-  <h2>ประสบการณ์ทำงาน</h2>
-  <ul>
-    <li>
-      <b>Freelance (2025 – ปัจจุบัน)</b>
-      <ul>
-        <li style="font-weight: bolder;">ระบบคลังสินค้า, เว็บไซต์บริษัท</li>
-         <span>พัฒนาและดูแลระบบคลังสินค้า ครอบคลุมทั้ง Frontend และ Backend</span>
-         <span>พัฒนาและดูแล ครอบคลุมทั้ง Frontend และ Backend เว็บไซต์บริษัท</span>
-        <li style="font-weight: bolder;">ระบบข้อสอบออนไลน์</li>
-          <span>ช่วยให้การฝึกทำข้อสอบก่อนสอบจริงได้มีประสิทธิภาพมากขึ้น</span>
-        <li style="font-weight: bolder;">ระบบค้นหาข้อสอบ</li>
-        <span>ช่วยให้การหาข้อสอบมีความรวดเร็วมากยิ่งขึ้น</span>
-      </ul>
-      <div class="tech">เทคโนโลยีที่ใช้: Next.js, Express, Flask, SQL, MySQL, Laravel</div>
-    </li>
-     <li>
-      <b>Full Stack Developer — CORE IT SOLUTIONS (ต.ค. 2024 - พ.ค. 2025)</b>
-      <ul>
-        <li style="font-weight: bolder;">พัฒนาแอปมือถือ และ Frontend สำหรับเว็บไซต์บริหารไซต์ก่อสร้าง</li>
-        <li style="font-weight: bolder;">ระบบการจัดการเกี่ยวกับป้ายรถยนต์ เเละกล้องบนถนน</li>
-        <span>ดูเเลเเละพัฒนาการเเสดงผลข้อมูลให้สะดวกเเละมีความเเม่นยำ</span>
-      </ul>
-      <div class="tech">เทคโนโลยีที่ใช้: Next.js, Express, Flask, SQL, MySQL, Laravel</div>
-    </li>
-    
-    <li>
-      <b>Associate Software Engineer — Quantiumfund (มิ.ย. 2021 – มิ.ย. 2023)</b>
-      <ul>
-        <li style="font-weight: bolder;">พัฒนาระบบบริหารจัดการกองทุน</li>
-         <span>พัฒนาฟังก์ชันก์การทำงานให้รองรับกับการลงทุนที่มีความซับซ้อน ช่วยให้จัดการการลงทุนได้ดีขึ้น</span> <br/>
-         <span>ดูเเลส่วนของการเพิ่มความถูกต้องเกี่ยวกับการเก็บข้อมูลของการคำนวณทั้งหมดของระบบ</span>
-        <li  style="font-weight: bolder;">ออกแบบ Dashboard และระบบรายงาน</li>
-      </ul>
-      <div class="tech">เทคโนโลยีที่ใช้: ASP.NET, C#, SQL Server, MongoDB, Bootstrap</div>
-    </li>
+          <div class="exp" style="margin-top:14px;">
+            <div>
+              <div class="role">Freelance</div>
+              <div class="period">2025 – ปัจจุบัน</div>
+            </div>
+            <div>
+              <p>ทำงานอิสระ พัฒนาเว็บไซต์และแอปพลิเคชันให้กับลูกค้าหลากหลาย ตั้งแต่การออกแบบ UX/UI
+                จนถึงพัฒนาและปรับปรุงระบบให้พร้อมใช้งานจริง</p>
+              <ul class="bullets">
+                <li><b class="org">ระบบคลังสินค้า & เว็บไซต์บริษัท</b> — พัฒนาและดูแลทั้ง Frontend/Backend
+                  ให้ใช้งานง่ายและเชื่อถือได้</li>
+                <li><b class="org">ระบบข้อสอบออนไลน์</b> — ช่วยให้ผู้ใช้ฝึกทำข้อสอบก่อนสอบจริงได้มีประสิทธิภาพ</li>
+                <li><b class="org">ระบบค้นหาข้อสอบ</b> — ลดเวลาในการค้นหาเอกสาร/ข้อสอบซ้ำซ้อน</li>
+                <li><b class="org">แอปตรวจวัดปริมาณแอลกอฮอล์ในลมหายใจ</b> — พัฒนาโดยใช้ Capacitor + Vue.js เชื่อมต่อ BLE
+                  พร้อมแสดงผลและบันทึกข้อมูลแบบเรียลไทม์</li>
+              </ul>
+            </div>
 
-    <li>
-      <b>Full Stack Developer — GlobeTech Co., Ltd. (CDG) (2019 – มิ.ย. 2021)</b>
-      <ul>
-        <li>พัฒนาเว็บไซต์นำเสนอแหล่งท่องเที่ยวชุมชนในประเทศไทย</li>
-        <li>ออกแบบฐานข้อมูล และสร้าง Backend API เชื่อมต่ออุปกรณ์มือถือ</li>
-        <li>วางแผนเส้นทาง (routing) บนเว็บไซต์ก่อนใช้งานจริง</li>
-        <li>ให้คำปรึกษาด้านการพัฒนาเว็บแอปพลิเคชัน</li>
-        <li>ใช้งาน Map API สำหรับโปรเจกต์นักศึกษา</li>
-      </ul>
-      <div class="tech">เทคโนโลยีที่ใช้: ASP.NET, C#, SQL Server, Bootstrap</div>
-    </li>
+            <div>
+              <div class="role">Full Stack Developer — CORE IT SOLUTIONS</div>
+              <div class="period">ต.ค. 2024 – พ.ค. 2025</div>
+            </div>
+            <div>
+              <ul class="bullets">
+                <li><b class="org">ระบบจัดการป้ายทะเบียน & กล้องบนถนน</b> — พัฒนา UI ตาม Requirement,
+                  วางแผนงานและโครงการสำหรับ UI</li>
+              </ul>
+            </div>
 
-    <li>
-      <b>Full Stack Developer (สหกิจศึกษา) — GlobeTech Co., Ltd. (CDG) (2018, 7 เดือน)</b>
-      <ul>
-        <li>พัฒนาเว็บไซต์จัดการข้อมูลการท่องเที่ยวของไทย</li>
-        <li>รองรับการย้ายข้อมูลจาก Excel ไปยังฐานข้อมูลออนไลน์</li>
-        <li>ช่วยบูรณาการและควบคุมข้อมูลท่องเที่ยวได้อย่างมีประสิทธิภาพ</li>
-      </ul>
-      <div class="tech">เทคโนโลยีที่ใช้: ASP.NET, C#, SQL Server, Bootstrap</div>
-    </li>
-  </ul>
+            <div>
+              <div class="role">Associate Software Engineer — Quantiumfund</div>
+              <div class="period">มิ.ย. 2021 – มิ.ย. 2023</div>
+            </div>
+            <div>
+              <ul class="bullets">
+                <li><b class="org">ระบบบริหารจัดการกองทุน</b> — ออกแบบฟังก์ชันรองรับตรรกะการลงทุนที่ซับซ้อน
+                  และเพิ่มความถูกต้องของการคำนวณ</li>
+                <li>เขียน Unit Test เพื่อเพิ่มความมั่นใจในโค้ดและการคำนวณทางการเงิน</li>
+                <li>ใช้ Entity Framework จัดการฐานข้อมูลและเพิ่มประสิทธิภาพการเข้าถึงข้อมูล</li>
+              </ul>
+            </div>
 
-  <h2>ทักษะทางเทคนิค</h2>
-  <ul>
-    <li><b>Frontend:</b> Next.js, Nuxt.js, Angular, Bootstrap</li>
-    <li><b>Backend:</b> Node.js (Express), Flask, Laravel, ASP.NET (C#)</li>
-    <li><b>ภาษาโปรแกรม:</b> JavaScript, TypeScript, C#, Python, PHP</li>
-    <li><b>ฐานข้อมูล:</b> PostgreSQL, SQL Server, MySQL, MongoDB</li>
-    <li><b>ระบบควบคุมเวอร์ชัน:</b> Git</li>
-  </ul>
+            <div>
+              <div class="role">Full Stack Developer — GlobeTech (CDG)</div>
+              <div class="period">2019 – มิ.ย. 2021</div>
+            </div>
+            <div>
+              <ul class="bullets">
+                <li>พัฒนาเว็บไซต์นำเสนอแหล่งท่องเที่ยวชุมชน</li>
+                <li>ออกแบบฐานข้อมูลและสร้าง Backend API เชื่อมต่ออุปกรณ์มือถือ</li>
+                <li>วางแผนเส้นทาง (routing) บนเว็บไซต์ก่อนใช้งานจริง</li>
+                <li>ให้คำปรึกษาด้านเว็บแอป และใช้งาน Map API สำหรับโปรเจกต์นักศึกษา</li>
+              </ul>
+            </div>
 
-  <h2>การศึกษา (Education)</h2>
-  <ul>
-    <li>วิทยาการคอมพิวเตอร์ — สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง (2015 – 2019)</li>
-  </ul>
+            <div>
+              <div class="role">Full Stack Developer (สหกิจ) — GlobeTech (CDG)</div>
+              <div class="period">2018 (7 เดือน)</div>
+            </div>
+            <div>
+              <ul class="bullets">
+                <li>พัฒนาเว็บจัดการข้อมูลท่องเที่ยวของไทย</li>
+                <li>ย้ายข้อมูลจาก Excel สู่ฐานข้อมูลออนไลน์ และบูรณาการข้อมูล</li>
+              </ul>
+            </div>
+          </div>
+        </section>
 
+        <section class="section">
+          <h2>ทักษะทางเทคนิค</h2>
+          <div class="rule"></div>
+          <div class="skills" style="margin-top:12px;">
+            <div class="skill">
+              <h3>Frontend</h3>
+              <ul>
+                <li>Next.js, Angular, Bootstrap</li>
+              </ul>
+            </div>
+            <div class="skill">
+              <h3>Backend</h3>
+              <ul>
+                <li>ASP.NET (C#), Laravel, Node.js (Express)</li>
+              </ul>
+            </div>
+            <div class="skill">
+              <h3>ภาษาโปรแกรม</h3>
+              <ul>
+                <li>JavaScript, TypeScript, C#, Python, PHP</li>
+              </ul>
+            </div>
+            <div class="skill">
+              <h3>ฐานข้อมูล & อื่น ๆ</h3>
+              <ul>
+                <li>SQL Server, MySQL, MongoDB, PostgreSQL, Git<br>Deployment: IIS, Linux command line (เบื้องต้น),
+                  Docker สำหรับรัน Database เบื้องต้น</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="section edu">
+          <h2>การศึกษา (Education)</h2>
+          <div class="rule"></div>
+          <ul>
+            <li>วิทยาการคอมพิวเตอร์ — สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง (2015 – 2019)</li>
+          </ul>
+        </section>
+      </main>
+    </div>
+  </div>
 </body>
+
 </html>
